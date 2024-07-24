@@ -14,4 +14,5 @@ receivers:
       - bot_token: "INSERT_BOT_ID_HER"
         chat_id: chat_id
 #  https://api.telegram.org/botINSERT_BOT_ID_HERE/getUpdates - to get chat_id
-#  amtool --alertmanager.url=http://localhost:9093/ alert add alertname="Test alert" severity="warning" job="test-job" - to send test alert
+#  curl -s "https://api.telegram.org/bot7465025695:AAHnb2S-Xqrjl-B_dfDqMMVdHC6jSem42fs/getUpdates"
+
