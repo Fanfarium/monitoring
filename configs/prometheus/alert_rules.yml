@@ -133,9 +133,3 @@ groups:
       description: Container has restarted more than 5 times in the last 5 minutes.
     labels:
       severity: critical
-  - alert: High Container Memory Usage
-    expr: 'container_memory_usage_bytes / container_spec_memory_limit_bytes > 0.8'
-    annotations:
-      description: Container memory usage exceeds 80% of the set limit.
-    labels:
-      severity: warning
