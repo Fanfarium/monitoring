@@ -25,7 +25,7 @@ groups:
       severity: warning
     for: 2m
   - alert: Host out of disk space
-    expr: '(node_filesystem_avail_bytes * 100) / node_filesystem_size_bytes < 10 and on (instance, device, mountpoint) node_f>
+    expr: '(node_filesystem_avail_bytes * 100) / node_filesystem_size_bytes < 10 and on (instance, device, mountpoint) node_filesystem_readonly == 0'
     annotations:
       description: Disk is almost full (< 10% left)
     labels:
@@ -44,7 +44,7 @@ groups:
     labels:
       severity: warning
   - alert: Host clock skew
-    expr: '(node_timex_offset_seconds > 0.05 and deriv(node_timex_offset_seconds[5m]) >= 0) or (node_timex_offset_seconds < ->
+    expr: '(node_timex_offset_seconds > 0.05 and deriv(node_timex_offset_seconds[5m]) >= 0) or (node_timex_offset_seconds < -0.05 and deriv(node_timex_offset_seconds[5m]) <= 0)'
     annotations:
       description: 'Clock skew detected. Clock is out of sync.'
     labels:
